@@ -61,3 +61,8 @@
         max-width: 100%;
     }
 }
+
+.link {
+    color: blue;
+    text-decoration: underline;
+  }

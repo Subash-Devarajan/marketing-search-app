@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_not_found.jpg";
+import { useGlobalContext } from '../../context.';
 import "./BookDetails.css";
 import {FaArrowLeft} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -13,41 +14,12 @@ const BookDetails = () => {
   const [loading, setLoading] = useState(false);
   const [book, setBook] = useState(null);
   const navigate = useNavigate();
+  const {books} = useGlobalContext();
 
-  useEffect(() => {
-    setLoading(true);
-    async function getBookDetails(){
-      try{
-        const response = await fetch(`${URL}${id}.json`);
-        const data = await response.json();
-        console.log(data);
-
-        if(data){
-          const {description, title, covers, subject_places, subject_times, subjects} = data;
-          const newBook = {
-            description: description ? description.value : "No description found",
-            title: title,
-            cover_img: covers ? `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg` : coverImg,
-            subject_places: subject_places ? subject_places.join(", ") : "No subject places found",
-            subject_times : subject_times ? subject_times.join(", ") : "No subject times found",
-            subjects: subjects ? subjects.join(", ") : "No subjects found"
-          };
-          setBook(newBook);
-        } else {
-          setBook(null);
-        }
-        setLoading(false);
-      } catch(error){
-        console.log(error);
-        setLoading(false);
-      }
-    }
-    getBookDetails();
-  }, [id]);
-
-  if(loading) return <Loading />;
+  console.log(books);
 
   return (
+    
     <section className='book-details'>
       <div className='container'>
         <button type='button' className='flex flex-c back-btn' onClick={() => navigate("/book")}>
@@ -61,7 +33,7 @@ const BookDetails = () => {
               <span className='fw-6 fs-24'>{book?.title}</span>
             </div>
             <div className='book-details-item description'>
-              <span>{book?.description}</span>
+              <span>{books[id]?.text}</span>
             </div>
             <div className='book-details-item'>
               <span className='fw-6'> </span>
@@ -69,7 +41,7 @@ const BookDetails = () => {
             </div>
             <div className='book-details-item'>
               <span className='fw-6'>Source: </span>
-              <a>{book?.subject_times} Video Link </a>
+              <a className='link' href={books[id]?.video_url} target="_blank" rel="noopener noreferrer">AI with Azure</a>
             </div>
           </div>
         </div>

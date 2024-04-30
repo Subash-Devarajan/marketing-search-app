@@ -1,15 +1,17 @@
 .header-content {
-    min-height: 75vh;
+    min-height: 30vh;
     background: linear-gradient(rgba(0,255,0,0.5), rgba(0,255,0,0.5)), url("../../images/tglocations.avif") center/cover no-repeat;
     flex-direction: column;
 }
 
-.header-title{
-    font-size: 4.2rem;
+.header-title {
+    font-size: 3rem; /* Adjust the font size as needed */
 }
-.header-text{
-    margin-top: -1.8rem;
-    margin-bottom: 2.8rem;
+
+.header-text {
+    margin-top: -1rem; /* Adjust the margin top as needed */
+    margin-bottom: 2rem; /* Adjust the margin bottom as needed */
+    font-size: 1.4rem; /* Adjust the font size as needed */
     opacity: 0.8;
     max-width: 770px;
 }

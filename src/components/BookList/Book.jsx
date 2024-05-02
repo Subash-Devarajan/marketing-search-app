@@ -8,7 +8,7 @@ const Book = (book) => {
       <div className='book-item-info text-center'>
         <Link to = {`/book/${book.id}`} {...book}>
           <div className='book-item-info-item title fw-7 fs-18'>
-            <span>{book.title}</span>
+            <span>{book.title + " (" + (book.id + 1) + ")"}</span>
           </div>
         </Link>
       </div>

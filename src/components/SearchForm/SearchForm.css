@@ -11,6 +11,7 @@
 .search-form-elem .form-control{
     font-size: 1.2rem; /* Adjust the font size as needed */
     padding: 0.4rem; /* Adjust the padding as needed */
+    width: calc(100% - 40px);
 }
 
 .search-form-elem .form-control::placeholder{

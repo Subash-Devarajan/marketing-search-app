@@ -30,18 +30,14 @@ const BookDetails = () => {
         <div className='book-details-content grid'>
           <div className='book-details-info'>
             <div className='book-details-item title'>
-              <span className='fw-6 fs-24'>{book?.title}</span>
+              <span className='fw-6 fs-24'>{books[id]?.title}</span>
             </div>
             <div className='book-details-item description'>
               <span>{books[id]?.text}</span>
             </div>
             <div className='book-details-item'>
-              <span className='fw-6'> </span>
-              <span>{book?.subjects}</span>
-            </div>
-            <div className='book-details-item'>
               <span className='fw-6'>Source: </span>
-              <a className='link' href={books[id]?.video_url} target="_blank" rel="noopener noreferrer">AI with Azure</a>
+              <a className='link' href={books[id]?.video_url} target="_blank" rel="noopener noreferrer">{books[id]?.title}</a>
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className={toggleMenu ? "navbar-collapse show-navbar-collapse" : "navbar-collapse"}>
+        {/* <div className={toggleMenu ? "navbar-collapse show-navbar-collapse" : "navbar-collapse"}>
           <ul className = "navbar-nav">
             <li className='nav-item'>
               <Link to = "book" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>Home</Link>
@@ -32,7 +32,7 @@ const Navbar = () => {
               <Link to = "about" className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'>about</Link>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   )

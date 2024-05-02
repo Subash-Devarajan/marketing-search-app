@@ -4,7 +4,7 @@ const URL = "https://elym3zf4og.execute-api.us-east-1.amazonaws.com/development/
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
-    const [searchTerm, setSearchTerm] = useState("what is Azure?");
+    const [searchTerm, setSearchTerm] = useState(" ");
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [resultTitle, setResultTitle] = useState("");
@@ -36,7 +36,9 @@ const AppProvider = ({children}) => {
 
                 setBooks(newBooks);
 
-                if(newBooks.length > 1){
+                console.log(newBooks.length);
+
+                if(newBooks.length >= 1){
                     setResultTitle("Sources");
                 } else {
                     setResultTitle("No Search Result Found!")

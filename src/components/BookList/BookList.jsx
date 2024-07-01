@@ -4,7 +4,6 @@ import Book from "../BookList/Book";
 import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_not_found.jpg";
 import "./BookList.css";
-import { Link } from '@material-ui/core';
 
 //https://covers.openlibrary.org/b/id/240727-S.jpg
 

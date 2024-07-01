@@ -16,37 +16,15 @@ const AppProvider = ({children}) => {
             const response = await fetch(`${URL}${searchTerm}`);
             const jsonString = await response.json();
             const data = JSON.parse(jsonString);
+
+            console.log(data);
             
             const {references} = data;
+            setBooks(data);
             
-            setGeneratedText(data['generated_text']);
+            setGeneratedText(data[0]['text']);
 
-            if(references){
-                const newBooks = references.slice(0, 20).map((bookSingle) => {
-                    const {text, title, video_url} = bookSingle;
-
-                    return {
-                        text: text,
-                        title: title,
-                        video_url: video_url
-                    }
-                });
-
-                console.log(newBooks);
-
-                setBooks(newBooks);
-
-                console.log(newBooks.length);
-
-                if(newBooks.length >= 1){
-                    setResultTitle("Sources");
-                } else {
-                    setResultTitle("No Search Result Found!")
-                }
-            } else {
-                setBooks([]);
-                setResultTitle("No Search Result Found!");
-            }
+            
             console.log(books);
             setLoading(false);
         } catch(error){

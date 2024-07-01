@@ -37,7 +37,7 @@ const BookList = () => {
                 <div><h2> {item['text']} <sup>{item['links'].map((ref, refin) => {
                   linkCount = linkCount + 1;
                   return (
-                    <Link href={ref['url']}>{'['+linkCount+']'}</Link>
+                    <a href={ref['url']} target="_blank" rel="noopener noreferrer">{'['+linkCount+']'}</a>
                   )
                 })}</sup> </h2></div>
               )
